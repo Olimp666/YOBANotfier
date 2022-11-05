@@ -45,8 +45,10 @@ class Config(
     var toastPosition: ToastPosition = ToastPosition.UPLEFT,
     var animationType: AnimationType = AnimationType.FADE,
     var image: String = "https://cumz.one/5RYkuRW.jpg",
-    var startSound: String = "file:///C:/Users/olimp/Desktop/YUH.wav",
-    var endSound: String = "file:///C:/Users/olimp/Desktop/AUGH.wav"
+    //file:///C:/Users/olimp/Desktop/YUH.wav
+    var startSound: String = "https://cumz.one/78ikCdN.wav",
+    //file:///C:/Users/olimp/Desktop/AUGH.wav
+    var endSound: String = "https://cumz.one/95HLbu7.wav"
 )
 
 class Toast {
@@ -72,7 +74,7 @@ class Toast {
         title.font = Font.font("Arial", 22.0)
         title.padding = Insets(5.0, 0.0, 0.0, 20.0)
         val text =
-            Label("Lorem ipsum dolor sit amet, consectetur adipiscing elit")
+            Label("Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit")
         text.textFill = Color.RED
         text.alignment = Pos.TOP_CENTER
         text.font = Font.font("Arial", 18.0)
@@ -100,13 +102,11 @@ class Toast {
 
         windows.scene = Scene(root, width, height)
         windows.scene.fill = Color.TRANSPARENT
-        windows.maxHeightProperty().bind(windows.scene.heightProperty().multiply(2))
         root.style = "-fx-background-color: #ffffff"
         root.setPrefSize(width, height)
 
 
         root.center = hbox
-
     }
 
 
@@ -114,7 +114,7 @@ class Toast {
         if (config.image.isEmpty())
             return
         val iconBorder = if (config.imageShape == ImageStyle.RECTANGLE)
-            Rectangle(100.0, 100.0)
+            Rectangle(90.0, 90.0)
         else
             Circle(50.0, 50.0, 45.0)
         iconBorder.fill = ImagePattern(Image(config.image))
@@ -208,7 +208,7 @@ class SomeClass : Application() {
                 imageShape = ImageStyle.CIRCLE,
                 alpha = 0.9,
                 animationType = AnimationType.SLIDE,
-                toastPosition = ToastPosition.BOTLEFT,
+                toastPosition = ToastPosition.UPLEFT,
             )
         )
         toast.start()
