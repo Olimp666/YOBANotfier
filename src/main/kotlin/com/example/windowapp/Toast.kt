@@ -8,6 +8,7 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.geometry.Rectangle2D
 import javafx.scene.Scene
+import javafx.scene.control.Button
 import javafx.scene.control.Label
 import javafx.scene.image.Image
 import javafx.scene.layout.BorderPane
@@ -44,6 +45,7 @@ class Config(
     var imageShape: ImageStyle = ImageStyle.CIRCLE,
     var toastPosition: ToastPosition = ToastPosition.UPLEFT,
     var animationType: AnimationType = AnimationType.FADE,
+    var buttons: Int = 0,
     var image: String = "https://cumz.one/5RYkuRW.jpg",
     //file:///C:/Users/olimp/Desktop/YUH.wav
     var startSound: String = "https://cumz.one/78ikCdN.wav",
@@ -72,22 +74,35 @@ class Toast {
         val title = Label("TITLE")
         title.alignment = Pos.TOP_CENTER
         title.font = Font.font("Arial", 22.0)
-        title.padding = Insets(5.0, 0.0, 0.0, 20.0)
+        title.padding = Insets(5.0, 0.0, 0.0, 0.0)
         val text =
-            Label("Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit")
+            Label("Lorem ipsum dolor sit amet, consectetur adipiscing")
         text.textFill = Color.RED
         text.alignment = Pos.TOP_CENTER
         text.font = Font.font("Arial", 18.0)
-        text.padding = Insets(5.0, 0.0, 0.0, 20.0)
+        text.padding = Insets(5.0, 0.0, 0.0, 0.0)
         text.isWrapText = true
 
         setImage()
         vbox.children.add(title)
         vbox.children.add(text)
         hbox.children.add(vbox)
+        vbox.padding = Insets(5.0, 0.0, 0.0, 20.0)
+        val btnhbox = HBox()
+        for (i in 1..config.buttons) {
+            val btn = Button()
+            btn.prefWidth = 30.0
+            btn.onAction = EventHandler {
+                closeFadeAnimation()
+            }
+            btnhbox.children.add(btn)
+        }
+        btnhbox.padding = Insets(5.0, 0.0, 0.0, 0.0)
+        btnhbox.spacing = 10.0
+        vbox.children.add(btnhbox)
 
         val width = 500.0
-        val height = 100.0
+        val height = 200.0
         windows.initStyle(StageStyle.TRANSPARENT)
 
         val screenBounds: Rectangle2D = Screen.getPrimary().bounds
@@ -209,6 +224,7 @@ class SomeClass : Application() {
                 alpha = 0.9,
                 animationType = AnimationType.SLIDE,
                 toastPosition = ToastPosition.UPLEFT,
+                buttons = 2
             )
         )
         toast.start()
