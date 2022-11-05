@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="638.0" prefWidth="317.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.windowapp.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label fx:id="welcomeText" alignment="BOTTOM_CENTER" contentDisplay="TOP" graphicTextGap="1.0" maxHeight="1.7976931348623157E308" prefHeight="0.0" prefWidth="277.0" stylesheets="@fsd.css" text="giudfgudhvuidhvkudfnbjkdfnsdffd" wrapText="true">
+      <font>
+         <Font name="Arial" size="34.0" />
+      </font>
+      <VBox.margin>
+         <Insets />
+      </VBox.margin>
+      <padding>
+         <Insets bottom="20.0" left="30.0" />
+      </padding></Label>
+    <Button fx:id="button1" onAction="#onHelloButtonClick" text="aaa" />
+</VBox>
